@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #111;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #ccc;
+            color: #fff;
+            width: 300px;
+        }
+
+        .login-container h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            padding: 8px;
+            width: 100%;
+            margin-top: 5px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+            background-color: #ff0303;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #000000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="usuario">Usuário</label>
+            <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuário" required>
+
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+
+            <button type="submit" id="btnLogar">Entrar</button>
+        </form>
+    </div>
+
+    <script>
+        const usuarios = [
+            { login: "Carlos", pass: "Gay" },
+        ];
+
+        const form = document.getElementById('loginForm');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); // Impede o envio padrão do formulário
+
+            const pegaUsuario = document.getElementById('usuario').value.trim();
+            const pegaSenha = document.getElementById('senha').value;
+
+            const valido = usuarios.some(usuario =>
+                usuario.login === pegaUsuario && usuario.pass === pegaSenha
+            );
+
+            if (valido) {
+                alert("Login bem-sucedido!");
+                window.location.href = "https://www.youtube.com/watch?v=TQHOnrRqsPY";
+            } else {
+                alert("Usuário ou senha incorretos.");
+            }
+        });
+    </script>
+
+</body>
+</html>
