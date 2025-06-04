@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>00:18</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000000;
+        }
+        .login-container {
+            background-color: rgb(0, 0, 0);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+        input, button {
+            display: block;
+            margin: 10px 0;
+            padding: 8px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <input type="text" id="usuario" placeholder="Usuário">
+        <input type="password" id="senha" placeholder="Senha">
+        <button id="bntLogar">Entrar</button>
+    </div>
+
+    <script>
+        const usuarios = [
+            {
+                login: "Ethan",
+                pass: "Ally2703"
+            },
+            {
+                login: "Samantha",
+                pass: "1695C75"
+            }
+        ];
+
+        let botao = document.getElementById('bntLogar');
+
+        botao.addEventListener('click', function logar() {
+            let pegaUsuario = document.getElementById('usuario').value;
+            let pegaSenha = document.getElementById('senha').value;
+            let validaLogin = false;
+
+            for (let i in usuarios) {
+                if (pegaUsuario === usuarios[i].login && pegaSenha === usuarios[i].pass) {
+                    validaLogin = true;
+                    break;
+                }
+            }
+
+            if (validaLogin) {
+                alert("Login bem-sucedido!");
+                window.location.href = "https://drive.google.com/file/d/1pk1eVp8ds62R3a93mOm2V8oJWfUDjp0v/view?usp=sharing"; // Altere para o destino desejado
+            } else {
+                alert("Usuário ou senha incorretos.");
+            }
+        });
+    </script>
+
+</body>
+</html>
